@@ -25,14 +25,61 @@ namespace OOP_02_Delivery_Management_System
             #region Part02_Question01
             /// Create one DeliveryAddress value, copy it into a second variable, modify the copy, and print both values to prove that
             ///the original did not change.
-            DeliveryAddress deliveryAddress = new DeliveryAddress("Giza", "Haram", 1);
-            DeliveryAddress deliveryAddress1 = new DeliveryAddress();
-            deliveryAddress1 = deliveryAddress;
+            //DeliveryAddress deliveryAddress = new DeliveryAddress("Giza", "Haram", 1);
+            //DeliveryAddress deliveryAddress1 = new DeliveryAddress();
+            //deliveryAddress1 = deliveryAddress;
 
-            deliveryAddress1.buildingNumber = 2;
-            Console.WriteLine(deliveryAddress.GetFullAddress());
-            Console.WriteLine(deliveryAddress1.GetFullAddress());
+            //deliveryAddress1.buildingNumber = 2;
+            //Console.WriteLine(deliveryAddress.GetFullAddress());
+            //Console.WriteLine(deliveryAddress1.GetFullAddress());
             #endregion
+
+            #region Part02_Question02
+            DeliveryCenter deliveryCenter = new DeliveryCenter();
+
+            string trackCode, description, city, street;
+            decimal weight, fee;
+            int i = 1, buildingNum;
+
+            do
+            {
+                Console.WriteLine("Enter Shipment " + i + " Data");
+                Console.Write("Tracking Code: ");
+                trackCode = Console.ReadLine();
+                Console.Write("Description: ");
+                description = Console.ReadLine();
+                Console.Write("Weight: ");
+                weight = decimal.Parse(Console.ReadLine());
+                Console.Write("Delivery Fee: ");
+                fee = decimal.Parse(Console.ReadLine());
+                Console.Write("City: ");
+                city = Console.ReadLine();
+                Console.Write("Street: ");
+                street = Console.ReadLine();
+                Console.Write("Buikding Number: ");
+                buildingNum = int.Parse(Console.ReadLine());
+
+                DeliveryAddress address = new DeliveryAddress(city, street, buildingNum);
+                Shipment shipment = new Shipment(trackCode, description, weight, fee, address);
+                deliveryCenter.AddShipment(shipment);
+                i++;
+            } while (i < 2);
+
+            Console.Write("Enter the tracking code to search: ");
+            trackCode = Console.ReadLine();
+            Shipment shipment2 = deliveryCenter[trackCode];
+            if (shipment2.TrackingCode != null)
+            {
+                Console.WriteLine("Shipment Found");
+                shipment2.PrintShipment();
+
+
+            }
+            else
+            {
+                Console.WriteLine("Shipment not found");
+            #endregion
+            }
         }
     }
 }

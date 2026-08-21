@@ -38,7 +38,7 @@ namespace OOP_02_Delivery_Management_System
         }
         public string GetFullAddress()
         {
-            string fullAddress = BuildingNumber + " "+Street+ " " +City;
+            string fullAddress = BuildingNumber + " " +Street+ " " +City;
             return fullAddress;
         }
 
