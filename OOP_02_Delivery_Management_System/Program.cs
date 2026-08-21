@@ -1,4 +1,7 @@
-﻿namespace OOP_02_Delivery_Management_System
+﻿using System.Security.Cryptography;
+using System.Threading.Channels;
+
+namespace OOP_02_Delivery_Management_System
 {
     internal class Program
     {
@@ -18,6 +21,18 @@
             //Answer (B): when using private istead public proerties, this will control the data using setters and getters
             //and will allow the validations.
             #endregion
-    }
+
+            #region Part02_Question01
+            /// Create one DeliveryAddress value, copy it into a second variable, modify the copy, and print both values to prove that
+            ///the original did not change.
+            DeliveryAddress deliveryAddress = new DeliveryAddress("Giza", "Haram", 1);
+            DeliveryAddress deliveryAddress1 = new DeliveryAddress();
+            deliveryAddress1 = deliveryAddress;
+
+            deliveryAddress1.buildingNumber = 2;
+            Console.WriteLine(deliveryAddress.GetFullAddress());
+            Console.WriteLine(deliveryAddress1.GetFullAddress());
+            #endregion
+        }
     }
 }
