@@ -10,6 +10,14 @@
             ///B- What happens when a Customer variable is copied into another variable and one variable modifies the object.
             //Answer (B): the object will be modified because the class is a reference type so the 2 variables with the same referance.
             #endregion
-        }
+
+            #region Question_02
+            ///a) Identify at least three problems with this design from an encapsulation perspective.
+            ///b) How can private fields and public properties improve this design?
+            //Answer (A): 1- Without set & get access the fields directly, 2- the fields are public, 3- No validations over the values
+            //Answer (B): when using private istead public proerties, this will control the data using setters and getters
+            //and will allow the validations.
+            #endregion
+    }
     }
 }
