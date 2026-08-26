@@ -89,6 +89,18 @@ namespace OOP_02_Delivery_Management_System
                 // Answer  b) Because class support oop princeple, inhertance, polymorphism and more flexable for multiple objects.
 
                 #endregion
+
+                #region Assignment02_Part1_Question02
+                /// a) Which class is the parent class?
+                /// b) Which class is the child class?
+                /// c) What members are inherited by ExpressShipment?
+                /// d) Why is inheritance better than duplicating the same code in multiple classes?
+                //Answer
+                // a) Shipment Class
+                // b) ExpressShipment
+                // C) TrackingCode
+                // d) inhertance better because it less code dupplication, easier maintance, reusability and easier to extend with out any duplication. 
+                #endregion
             }
         }
     }
