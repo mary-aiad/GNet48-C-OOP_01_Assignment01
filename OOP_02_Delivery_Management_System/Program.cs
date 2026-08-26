@@ -6,15 +6,15 @@ namespace OOP_02_Delivery_Management_System
     internal class Program
     {
         static void Main(string[] args)
-        {
-            #region Question_01
+             {
+                #region Question_01
             ///A- What happens when a DeliveryAddress variable is copied into another variable and the copy is modified?
             //Answer (A): Only the copy will be modified; the original won't change because it's a value type, so it's just a copy of the original.
             ///B- What happens when a Customer variable is copied into another variable and one variable modifies the object.
             //Answer (B): the object will be modified because the class is a reference type so the 2 variables with the same referance.
             #endregion
 
-            #region Question_02
+                #region Question_02
             ///a) Identify at least three problems with this design from an encapsulation perspective.
             ///b) How can private fields and public properties improve this design?
             //Answer (A): 1- Without set & get access the fields directly, 2- the fields are public, 3- No validations over the values
@@ -22,7 +22,7 @@ namespace OOP_02_Delivery_Management_System
             //and will allow the validations.
             #endregion
 
-            #region Part02_Question01
+                #region Part02_Question01
             /// Create one DeliveryAddress value, copy it into a second variable, modify the copy, and print both values to prove that
             ///the original did not change.
             //DeliveryAddress deliveryAddress = new DeliveryAddress("Giza", "Haram", 1);
@@ -34,7 +34,7 @@ namespace OOP_02_Delivery_Management_System
             //Console.WriteLine(deliveryAddress1.GetFullAddress());
             #endregion
 
-            #region Part02_Question02
+                #region Part02_Question02
             DeliveryCenter deliveryCenter = new DeliveryCenter();
 
             string trackCode, description, city, street;
@@ -79,6 +79,16 @@ namespace OOP_02_Delivery_Management_System
             {
                 Console.WriteLine("Shipment not found");
             #endregion
+
+
+                #region Assignment02_Part1_Question01
+                /// a) What is the difference between a class and a struct?
+                /// b) Why are classes more suitable than structs for large applications?
+                // Answer a) Struct is a value type, Class is reference type
+                //          Struct use small data and not support the inhertance but the class support it.
+                // Answer  b) Because class support oop princeple, inhertance, polymorphism and more flexable for multiple objects.
+
+                #endregion
             }
         }
     }
