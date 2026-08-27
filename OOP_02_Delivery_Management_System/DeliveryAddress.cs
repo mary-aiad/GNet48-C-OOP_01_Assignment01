@@ -14,9 +14,9 @@ namespace OOP_02_Delivery_Management_System
 
         public DeliveryAddress(string city, string street, int buildingNumber)
         {
-            this.City = city;
-            this.Street = street;
-            this.BuildingNumber = buildingNumber;
+            this.city = city;
+            this.street = street;
+            this.buildingNumber = buildingNumber;
         }
 
         public string city

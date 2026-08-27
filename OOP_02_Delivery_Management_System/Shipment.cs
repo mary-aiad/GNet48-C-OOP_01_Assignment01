@@ -7,38 +7,38 @@ using System.Threading.Tasks;
 
 namespace OOP_02_Delivery_Management_System
 {
-    internal struct Shipment
+    internal class Shipment
     {
         private string trackingCode;
         private string description;
         private decimal weight;
         private decimal deliveryFee;
         public DeliveryAddress Destination {  get; set; }
-        private decimal EstimatedCost { get; set; }
+        public virtual decimal EstimatedCost { get; set; }
 
 
         public Shipment(string trackCode)
         {
-            this.trackingCode = trackCode;
-            this.description = "Unknown";
-            this.weight = 1;
-            this.deliveryFee = 50;
+            this.TrackingCode = trackCode;
+            this.Description = "Unknown";
+            this.Weight = 1;
+            this.DelieveryFee = 50;
 
         }
 
-        public Shipment(string trackCode, string dest, decimal weight, decimal deliveryFee, DeliveryAddress destination)
+        public Shipment(string trackCode, string desc, decimal weight, decimal deliveryFee, DeliveryAddress destination)
         {
-            this.trackingCode = trackCode;  
-            this.description = dest;
-            this.weight = weight;
-            this.deliveryFee = deliveryFee;
+            this.TrackingCode = trackCode;
+            this.Description = desc;
+            this.Weight = weight;
+            this.DelieveryFee = deliveryFee;
             this.Destination = destination;
         }
         public string TrackingCode{ 
             get{ return trackingCode; }
             private set
             {
-                if (trackingCode != null && trackingCode.Length != 0)
+                if (value != null && value.Length != 0)
                 { 
                     trackingCode = value; 
                 }
@@ -54,7 +54,7 @@ namespace OOP_02_Delivery_Management_System
             get { return description; }
             private set
             {
-                if (description != null && description.Length != 0)
+                if (value != null && value.Length != 0)
                 {
                     description = value;
                 }
@@ -70,7 +70,7 @@ namespace OOP_02_Delivery_Management_System
             get { return weight; }
             private set
             {
-                if (weight > 0)
+                if (value > 0)
                 {
                     weight = value;
                 }
@@ -86,7 +86,7 @@ namespace OOP_02_Delivery_Management_System
             get { return deliveryFee; }
             private set
             {
-                if (deliveryFee > 0)
+                if (value > 0)
                 {
                     deliveryFee = value;
                 }
@@ -99,7 +99,7 @@ namespace OOP_02_Delivery_Management_System
 
         public decimal estimatedCost
         {
-            get { return deliveryFee + (weight * 5); }
+            get { return DelieveryFee + (Weight * 5); }
             set { estimatedCost = value; }
         }
 
@@ -107,19 +107,21 @@ namespace OOP_02_Delivery_Management_System
         {
             if (newFee > 0)
             {
-                this.deliveryFee = newFee;
+                this.DelieveryFee = newFee;
             }
-            return deliveryFee;
+            return DelieveryFee;
         }
 
         
 
-        public void PrintShipment()
+        public virtual void PrintShipment()
         {
-            Console.WriteLine("Tracking Code:" + trackingCode);
-            Console.WriteLine("Description:" + description);
-            Console.WriteLine("Weight:" + weight);
-            Console.WriteLine("Delievery Fee:" + deliveryFee);
+            Console.WriteLine("Standard Shipment");
+            Console.WriteLine();
+            Console.WriteLine("Tracking Code:" + TrackingCode);
+            Console.WriteLine("Description:" + Description);
+            Console.WriteLine("Weight:" + Weight);
+            Console.WriteLine("Delievery Fee:" + DelieveryFee);
             Console.WriteLine("Destination:" + Destination.GetFullAddress());
             Console.WriteLine("Estimated Cost:" + estimatedCost);
         }

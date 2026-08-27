@@ -6,16 +6,32 @@ using System.Threading.Tasks;
 
 namespace OOP_02_Delivery_Management_System
 {
-    internal struct DeliveryCenter
+    internal class DeliveryCenter
     {
         private Shipment[] shipments;
+        private string CenterName { get; set; }
         
 
         public DeliveryCenter()
         {
-            shipments = new Shipment[10];
+            shipments = new Shipment[20];
         }
 
+        public string centerName
+        {
+            get { return CenterName; }
+             set
+            {
+                if(value != null && value.Length != 0)
+                {
+                    CenterName = value;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Value");
+                }
+            }
+        }
         public Shipment this[int index]
         {
             get
@@ -54,16 +70,45 @@ namespace OOP_02_Delivery_Management_System
         {
             for (int i = 0; i < shipments.Length; i++)
             {
-                if (shipments[i].TrackingCode == null)
+                if (shipments[i] == null)
                 {
                     shipments[i] = shipment;
                     Console.WriteLine("The shipment was added successfully.");
+                    Console.WriteLine();
                     return true;
                 }
             }
             Console.WriteLine("The delivery center is full");
             return false;
         }
-    
+
+        public bool RemoveShipment(string trackingCode)
+        {
+
+            Shipment shipment = this[trackingCode];
+            if (shipment == null)
+                return false;
+            int index = Array.IndexOf(shipments, shipment);
+            if (index == -1)
+                return false;
+            shipments[index] = null; 
+            return true;
+        }
+
+        public void PrintAllShipments()
+        {
+            Console.WriteLine("--------------------------------------------------------------------");
+            Console.WriteLine($"Delivery Center: {CenterName}");
+            Console.WriteLine("--------------------------------------------------------------------");
+            for (int i = 0; i < shipments.Length; i++)
+            {
+                if (shipments[i]!= null)
+                {
+                    shipments[i].PrintShipment();
+                    Console.WriteLine("----------------------------------------------------");
+                }
+                
+            }
+        }
     }
 }
