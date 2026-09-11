@@ -191,6 +191,25 @@
                 Console.WriteLine("Shipment not found");
             }
             #endregion
+
+            #region Assignment03_Part1_Q1
+            ///a) What is the difference between Method Overloading and Method Overriding?
+            ///b)  What is the difference between Static Binding and Dynamic Binding?
+            //Answer a) overloading multiple methods with the same name but defferent type or count or order, at compile time
+            //          overriding child implement the same drived method with the defferent implementation, at run time
+            //Answer b) static binding early binding/ compile time binding, depends on reference type [overloading]
+            //          dynamic binding late binding/ run time, depends on object it self  [overriding]
+            #endregion
+
+            #region Assignment03_Part1_Q2
+            ///a)  What is the purpose of the sealed keyword when applied to a class?
+            ///b)  What is the difference between a sealed class and a sealed method?
+            ///c)  Can a sealed method be overridden? Why?
+            //Answers
+            //a) stop other clases to inheret from it, to stop the modifications on this class
+            //b) sealed class can't be inherted, sealed method prevent overriding
+            //c) No, because the sealed is to restricct modification of method behavior.
+            #endregion
         }
-    }
+}
 }
