@@ -116,14 +116,13 @@ namespace OOP_02_Delivery_Management_System
 
         public virtual void PrintShipment()
         {
-            Console.WriteLine("Standard Shipment");
+            
             Console.WriteLine();
             Console.WriteLine("Tracking Code:" + TrackingCode);
             Console.WriteLine("Description:" + Description);
             Console.WriteLine("Weight:" + Weight);
             Console.WriteLine("Delievery Fee:" + DelieveryFee);
             Console.WriteLine("Destination:" + Destination.GetFullAddress());
-            Console.WriteLine("Estimated Cost:" + estimatedCost);
         }
 
     }

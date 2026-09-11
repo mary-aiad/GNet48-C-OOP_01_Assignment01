@@ -56,13 +56,9 @@ namespace OOP_02_Delivery_Management_System
 
         public override void PrintShipment()
         {
+            
             Console.WriteLine("International Shipment");
-            Console.WriteLine();
-            Console.WriteLine("Tracking Code:" + TrackingCode);
-            Console.WriteLine("Description:" + Description);
-            Console.WriteLine("Weight:" + Weight);
-            Console.WriteLine("Delievery Fee:" + DelieveryFee);
-            Console.WriteLine("Destination:" + Destination.GetFullAddress());
+            base.PrintShipment();
             Console.WriteLine("Estimated Cost:" + EstimatedCost);
             Console.WriteLine("Destination Country:" + destinationCountry);
             Console.WriteLine("Customs Fee:" + customsFee);

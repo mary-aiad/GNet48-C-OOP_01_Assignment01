@@ -14,6 +14,12 @@ namespace OOP_02_Delivery_Management_System
             
         }
 
-        
+        public override void PrintShipment()
+        {
+            Console.WriteLine("Standard Shipment");
+            base.PrintShipment();
+            Console.WriteLine("Estimated Cost:" + estimatedCost);
+
+        }
     }
 }
