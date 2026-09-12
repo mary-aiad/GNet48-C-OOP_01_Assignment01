@@ -100,10 +100,125 @@
             #endregion
 
             #region Assignment02_Part2
+            //DeliveryCenter deliveryCenter = new DeliveryCenter();
+            //Console.Write("Enter Center Name: ");
+            //string centerName = Console.ReadLine();
+            //deliveryCenter.centerName = centerName;
+            //string trackCode, description, city, street;
+            //decimal weight, fee;
+            //int i = 1, buildingNum;
+
+            //do
+            //{
+            //    Console.WriteLine("Enter Shipment Type [StandardShipment, ExpressShipment, InternationalShipment]: ");
+            //    string type = Console.ReadLine();
+            //    Console.WriteLine("Enter Shipment " + i + " Data");
+            //    Console.Write("Tracking Code: ");
+            //    trackCode = Console.ReadLine();
+            //    Console.Write("Description: ");
+            //    description = Console.ReadLine();
+            //    Console.Write("Weight: ");
+            //    weight = decimal.Parse(Console.ReadLine());
+            //    Console.Write("Delivery Fee: ");
+            //    fee = decimal.Parse(Console.ReadLine());
+            //    Console.Write("City: ");
+            //    city = Console.ReadLine();
+            //    Console.Write("Street: ");
+            //    street = Console.ReadLine();
+            //    Console.Write("Buikding Number: ");
+            //    buildingNum = int.Parse(Console.ReadLine());
+                
+            //    DeliveryAddress address = new DeliveryAddress(city, street, buildingNum);
+            //    if (type == "StandardShipment")
+            //    {
+            //        StandardShipment standardShipment = new StandardShipment(trackCode, description, weight, fee, address);
+            //        deliveryCenter.AddShipment(standardShipment);
+            //    }
+            //    else if(type == "ExpressShipment")
+            //    {
+            //        Console.Write("Extra Fee: ");
+            //        decimal extraFee = decimal.Parse(Console.ReadLine());
+
+            //        ExpressShipment expressShipment = new ExpressShipment(trackCode, description, weight, fee, address, extraFee);
+            //        deliveryCenter.AddShipment(expressShipment);
+            //    }
+            //    else if (type == "InternationalShipment")
+            //    {
+            //        Console.Write("Destination Country: ");
+            //        string destinationCountry = Console.ReadLine();
+            //        Console.Write("Customs Fee: ");
+            //        decimal customsFee = decimal.Parse(Console.ReadLine());
+
+            //        InternationalShipment internationalShipment = new InternationalShipment(trackCode, description, weight, fee, address, destinationCountry, customsFee);
+            //        deliveryCenter.AddShipment(internationalShipment);
+            //        Console.WriteLine("-------------------------------------------------------------------");
+            //        Console.WriteLine("");
+            //    }                
+            //    i++;
+            //} while (i < 4);
+
+            //deliveryCenter.PrintAllShipments();
+
+            ///// Search
+            //Console.Write("Enter tracking code to search: ");
+            //trackCode = Console.ReadLine();
+            //Shipment shipmentSearch = deliveryCenter[trackCode];
+            //if (shipmentSearch.TrackingCode != null)
+            //{
+            //    Console.WriteLine("Shipment Found");
+            //    shipmentSearch.PrintShipment();
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Shipment not found");
+            //}
+            ///// Remove
+            //Console.Write("Enter tracking code to remove: ");
+            //trackCode = Console.ReadLine();
+            //Shipment shipmentRemove = deliveryCenter[trackCode];
+            //if (shipmentRemove.TrackingCode != null)
+            //{
+            //    if(deliveryCenter.RemoveShipment(shipmentRemove.TrackingCode))
+            //    {
+            //        Console.WriteLine("Shipment Removed");
+            //        deliveryCenter.PrintAllShipments();
+            //    }
+            //    else
+            //        Console.WriteLine("Shipment not found");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Shipment not found");
+            //}
+            #endregion
+
+            #region Assignment03_Part1_Q1
+            ///a) What is the difference between Method Overloading and Method Overriding?
+            ///b)  What is the difference between Static Binding and Dynamic Binding?
+            //Answer a) overloading multiple methods with the same name but defferent type or count or order, at compile time
+            //          overriding child implement the same drived method with the defferent implementation, at run time
+            //Answer b) static binding early binding/ compile time binding, depends on reference type [overloading]
+            //          dynamic binding late binding/ run time, depends on object it self  [overriding]
+            #endregion
+
+            #region Assignment03_Part1_Q2
+            ///a)  What is the purpose of the sealed keyword when applied to a class?
+            ///b)  What is the difference between a sealed class and a sealed method?
+            ///c)  Can a sealed method be overridden? Why?
+            //Answers
+            //a) stop other clases to inheret from it, to stop the modifications on this class
+            //b) sealed class can't be inherted, sealed method prevent overriding
+            //c) No, because the sealed is to restricct modification of method behavior.
+            #endregion
+
+            #region Assignment03_Part2
             DeliveryCenter deliveryCenter = new DeliveryCenter();
             Console.Write("Enter Center Name: ");
             string centerName = Console.ReadLine();
             deliveryCenter.centerName = centerName;
+            Console.Write("Enter Driver Name: ");
+            string driverName = Console.ReadLine();
+            deliveryCenter.driverName = driverName;
             string trackCode, description, city, street;
             decimal weight, fee;
             int i = 1, buildingNum;
@@ -127,14 +242,14 @@
                 street = Console.ReadLine();
                 Console.Write("Buikding Number: ");
                 buildingNum = int.Parse(Console.ReadLine());
-                
+
                 DeliveryAddress address = new DeliveryAddress(city, street, buildingNum);
                 if (type == "StandardShipment")
                 {
                     StandardShipment standardShipment = new StandardShipment(trackCode, description, weight, fee, address);
                     deliveryCenter.AddShipment(standardShipment);
                 }
-                else if(type == "ExpressShipment")
+                else if (type == "ExpressShipment")
                 {
                     Console.Write("Extra Fee: ");
                     decimal extraFee = decimal.Parse(Console.ReadLine());
@@ -153,63 +268,35 @@
                     deliveryCenter.AddShipment(internationalShipment);
                     Console.WriteLine("-------------------------------------------------------------------");
                     Console.WriteLine("");
-                }                
+                }
                 i++;
-            } while (i < 4);
+            } while (i < 2);
 
             deliveryCenter.PrintAllShipments();
 
-            /// Search
-            Console.Write("Enter tracking code to search: ");
-            trackCode = Console.ReadLine();
-            Shipment shipmentSearch = deliveryCenter[trackCode];
-            if (shipmentSearch.TrackingCode != null)
+            //Printing Using DeliveryHelper...
+            Shipment[] shipments = deliveryCenter.Shipments;
+            foreach (var shipment in shipments)
             {
-                Console.WriteLine("Shipment Found");
-                shipmentSearch.PrintShipment();
-            }
-            else
-            {
-                Console.WriteLine("Shipment not found");
-            }
-            /// Remove
-            Console.Write("Enter tracking code to remove: ");
-            trackCode = Console.ReadLine();
-            Shipment shipmentRemove = deliveryCenter[trackCode];
-            if (shipmentRemove.TrackingCode != null)
-            {
-                if(deliveryCenter.RemoveShipment(shipmentRemove.TrackingCode))
-                {
-                    Console.WriteLine("Shipment Removed");
-                    deliveryCenter.PrintAllShipments();
-                }
+                if (shipment != null)
+                    DeliveryHelper.PrintShipmentDetails(shipment);
                 else
-                    Console.WriteLine("Shipment not found");
+                    break;
             }
-            else
-            {
-                Console.WriteLine("Shipment not found");
-            }
-            #endregion
 
-            #region Assignment03_Part1_Q1
-            ///a) What is the difference between Method Overloading and Method Overriding?
-            ///b)  What is the difference between Static Binding and Dynamic Binding?
-            //Answer a) overloading multiple methods with the same name but defferent type or count or order, at compile time
-            //          overriding child implement the same drived method with the defferent implementation, at run time
-            //Answer b) static binding early binding/ compile time binding, depends on reference type [overloading]
-            //          dynamic binding late binding/ run time, depends on object it self  [overriding]
-            #endregion
+            //Updatewight
+            Console.WriteLine("-------------------------------------------------------------------");
+            Console.WriteLine("");
+            Console.WriteLine($"Original standard weight: {shipments[0].Weight} KG");
+            shipments[0].UpdateWeight(5);
+            Console.WriteLine($"Updated Weight: {shipments[0].Weight} KG");
+            shipments[0].UpdateWeight(5, 5);
+            Console.WriteLine($"Updated Weight After Packing 5 KG: {shipments[0].Weight} KG");
+            Console.WriteLine("-------------------------------------------------------------------");
+            Console.WriteLine("");
 
-            #region Assignment03_Part1_Q2
-            ///a)  What is the purpose of the sealed keyword when applied to a class?
-            ///b)  What is the difference between a sealed class and a sealed method?
-            ///c)  Can a sealed method be overridden? Why?
-            //Answers
-            //a) stop other clases to inheret from it, to stop the modifications on this class
-            //b) sealed class can't be inherted, sealed method prevent overriding
-            //c) No, because the sealed is to restricct modification of method behavior.
+            shipments[0].PrintShipment();
             #endregion
         }
-}
+    }
 }

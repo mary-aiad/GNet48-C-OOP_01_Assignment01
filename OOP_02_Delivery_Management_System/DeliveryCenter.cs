@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,12 +12,16 @@ namespace OOP_02_Delivery_Management_System
         private Shipment[] shipments;
         private string CenterName { get; set; }
         
+        private string DriverName { get; set; }
 
         public DeliveryCenter()
         {
             shipments = new Shipment[20];
         }
 
+        public Shipment[] Shipments{
+            get { return shipments; }
+        }
         public string centerName
         {
             get { return CenterName; }
@@ -25,6 +30,21 @@ namespace OOP_02_Delivery_Management_System
                 if(value != null && value.Length != 0)
                 {
                     CenterName = value;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Value");
+                }
+            }
+        }
+        public string driverName
+        {
+            get { return DriverName; }
+            set
+            {
+                if (value != null && value.Length != 0)
+                {
+                    DriverName = value;
                 }
                 else
                 {
@@ -107,7 +127,8 @@ namespace OOP_02_Delivery_Management_System
                     shipments[i].PrintShipment();
                     Console.WriteLine("----------------------------------------------------");
                 }
-                
+                else
+                    break;
             }
         }
     }

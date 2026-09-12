@@ -112,7 +112,18 @@ namespace OOP_02_Delivery_Management_System
             return DelieveryFee;
         }
 
-        
+        public void UpdateWeight(decimal newWeight)
+        {
+            if (newWeight > 0)
+                Weight = newWeight;
+        }
+
+        public void UpdateWeight(decimal newWeight, decimal extraPacking)
+        {
+            if (newWeight > 0)
+                Weight = newWeight + extraPacking;
+        }
+
 
         public virtual void PrintShipment()
         {

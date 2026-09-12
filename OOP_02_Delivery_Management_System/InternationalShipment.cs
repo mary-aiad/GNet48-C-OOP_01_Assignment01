@@ -63,5 +63,10 @@ namespace OOP_02_Delivery_Management_System
             Console.WriteLine("Destination Country:" + destinationCountry);
             Console.WriteLine("Customs Fee:" + customsFee);
         }
+
+        public virtual void GenerateCustomsReport()
+        {
+
+        }
     }
 }
